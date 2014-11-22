@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
+using SPA.Core.Models;
+using SPA.Infra.Services;
 using SPA.Web.Models;
 
 namespace SPA.Web.Api
@@ -7,25 +9,18 @@ namespace SPA.Web.Api
     [RoutePrefix("api/someprefix")]
     public class DoSomethingController : ApiController
     {
+        private readonly IDoSomethingService _doSomethingService;
+
+        public DoSomethingController(IDoSomethingService doSomethingService)
+        {
+            _doSomethingService = doSomethingService;
+        }
+
         [Route("items")]
         [HttpGet]
-        public IEnumerable<ItemViewModel> GetContext()
+        public IEnumerable<SampleModel> GetContext()
         {
-            var list = new List<ItemViewModel>()
-            {
-                new ItemViewModel()
-                {
-                    Id = 1,
-                    Description = "wow item 1"
-                },
-                new ItemViewModel()
-                {
-                    Id = 2,
-                    Description = "wow item 2"
-                }
-            };
-
-            return list;
+            return _doSomethingService.ReturnSomething();
         }
     }
 }

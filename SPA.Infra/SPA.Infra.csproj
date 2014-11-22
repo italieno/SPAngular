@@ -39,8 +39,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\DoSomethingService.cs" />
+    <Compile Include="Services\IDoSomethingService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SPA.Core\SPA.Core.csproj">
+      <Project>{FCC41DD9-D1B9-4BF9-B054-2E04B6B812EC}</Project>
+      <Name>SPA.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
