@@ -21,4 +21,4 @@
         $scope.things = ["A", "Set", "Of", "Things"];
       }
     });
-});
+}); 
